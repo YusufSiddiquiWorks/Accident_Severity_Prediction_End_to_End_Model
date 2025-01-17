@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accident Severity Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('{{ url_for('static', filename='Background_home.jpg') }}');
+            background-size: cover;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        form {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 10px;
+            width: 500px; /* Adjust width as needed */
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        input{
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        } select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Accident Severity Prediction</h1> 
+    <form action="/predict" method="POST">
+        <label for="Number_of_Casualties">Number of Casualties:</label>
+        <input type="number" name="Number_of_Casualties" required>
+
+        <label for="Number_of_Vehicles">Number of Vehicles:</label>
+        <input type="number" name="Number_of_Vehicles" required>
+
+        <label for="Light_Conditions">Light Conditions:</label>
+        <select name="Light_Conditions" required>
+            <option value="Daylight">Daylight</option>
+            <option value="Darkness_Lights_on">Night - Lights On</option>
+            <option value="Darkness_Lights_off">Night - Lights Off</option>
+            <option value="Darkness_no_Lights">Night - No Lights</option>
+            <option value="Darkness_Lights_Unknown">Night Lights Uncertain</option>
+        </select>
+
+        <label for="Road_Surface_Conditions">Road Surface Conditions:</label>
+        <select name="Road_Surface_Conditions" required>
+            <option value="Dry">Dry</option>
+            <option value="Flood">Flood</option>
+            <option value="Frost">Frost</option>
+            <option value="Snow">Snow</option>
+            <option value="Wet">Wet</option>
+        </select>
+
+        <label for="Road_Type">Road Type:</label>
+        <select name="Road_Type" required>
+            <option value="Single carriageway">Single Lane</option>
+            <option value="Dual carriageway">Double Lane</option>
+            <option value="Slip road">Slip road</option>
+            <option value="One way street">One-way street</option>
+            <option value="Roundabout">Roundabout</option>
+            
+            
+        </select>
+
+        <label for="Weather_Conditions">Weather Conditions:</label>
+        <select name="Weather_Conditions" required>
+            <option value="Fine no high winds">Clear</option>
+            <option value="Fine + high winds">Windy</option>
+            <option value="Fog or mist">Foggy</option>
+            <option value="Raining + high winds">Thunderstorm</option>
+            <option value="Raining no high winds">Rainy</option>
+            <option value="Snowing + high winds">Blizzard</option>
+            <option value="Snowing no high winds">Snowy</option>
+            <option value="Other">Not Sure</option>
+        </select>
+
+        <label for="Urban_or_Rural_Area">Urban or Rural Area:</label>
+        <select name="Urban_or_Rural_Area" required>
+            <option value="Urban">Urban</option>
+            <option value="Rural">Rural</option>
+            
+        </select>
+
+        <label for="Vehicle_Type">Vehicle Type:</label>
+        <select name="Vehicle_Type" required>
+            <option value="Car">Car</option>
+            <option value="MotorCycle">MotorCycle</option>
+            <option value="Bus">Bus</option>
+            <option value="Pedal cycle">Pedal cycle</option>
+            <option value="Goods Carrier">Goods Carrier</option>
+            <option value="Agricultural vehicle">Agricultural vehicle</option>
+            <option value="Ridden horse">Ridden horse</option>
+            <option value="Other vehicle">Not Sure</option>
+        </select>
+
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>

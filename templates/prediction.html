@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        body.Slight {
+            background-image: url('{{ url_for('static', filename='Slight_Accident_Background.jpg') }}');/
+            background-size: cover; 
+            color: white;
+            text-align: center;
+           
+        }
+
+        body.Serious {
+            background-image: url('{{ url_for('static', filename='Serious_Accident_Background.jpg') }}'); 
+            background-size: cover; 
+            color: white;
+            text-align: center;
+            
+        
+        
+        }
+
+        body.Fatal {
+            background-image: url('{{ url_for('static', filename='Fatal_Accident_Background.jpg') }}'); 
+            background-size: cover;
+            color: white;
+            text-align: center;
+
+            
+           
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 50px;
+
+            color: white;
+            text-align: center;
+            font-size:50px;
+        }
+    </style>
+</head>
+<body class={{ prediction }}> 
+    
+    <p>The Accident is {{ prediction }}</p>
+    <a href="/">Go Back to Home</a> 
+    
+
+</body>
+</html>
